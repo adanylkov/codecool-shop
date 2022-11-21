@@ -30,7 +30,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 
         public void Remove(int id)
         {
-            data.Remove(this.Get(id));
+            data.Remove(Get(id));
         }
 
         public Supplier Get(int id)
