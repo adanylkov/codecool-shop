@@ -23,16 +23,12 @@ namespace CodecoolShopTests
         [Test]
         public void AddedProductIsInCart()
         {
-            var tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
-            var amazon = new Supplier{Name = "Amazon", Description = "Digital content and services"};
             var product1 = new Product
             {
                 Name = "Amazon Fire",
                 DefaultPrice = 49.9m,
                 Currency = "USD",
                 Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             _productDataStore.Add(product1);
 
@@ -45,16 +41,12 @@ namespace CodecoolShopTests
         [Test]
         public void SameProductAddedMultipleTimesAppearsOneTimeInCart()
         {
-            var tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
-            var amazon = new Supplier{Name = "Amazon", Description = "Digital content and services"};
             var product1 = new Product
             {
                 Name = "Amazon Fire",
                 DefaultPrice = 49.9m,
                 Currency = "USD",
                 Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             _productDataStore.Add(product1);
 
@@ -70,16 +62,12 @@ namespace CodecoolShopTests
         [Test]
         public void ProductAddedMultipleTimesIncreaseCartQuanity()
         {
-            var tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
-            var amazon = new Supplier{Name = "Amazon", Description = "Digital content and services"};
             var product1 = new Product
             {
                 Name = "Amazon Fire",
                 DefaultPrice = 49.9m,
                 Currency = "USD",
                 Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             _productDataStore.Add(product1);
 
@@ -95,16 +83,12 @@ namespace CodecoolShopTests
         [Test]
         public void TwoDifferentProductsAddedToCartAsDifferentProducts()
         {
-            var tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
-            var amazon = new Supplier{Name = "Amazon", Description = "Digital content and services"};
             var product1 = new Product
             {
                 Name = "Amazon Fire",
                 DefaultPrice = 49.9m,
                 Currency = "USD",
                 Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             var product2 = new Product
             {
@@ -112,8 +96,6 @@ namespace CodecoolShopTests
                 DefaultPrice = 89.0m,
                 Currency = "USD",
                 Description = "Amazon's latest Fire HD 8 tablet is a great value for media consumption.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             _productDataStore.Add(product1);
             _productDataStore.Add(product2);
@@ -131,16 +113,12 @@ namespace CodecoolShopTests
         [Test]
         public void DifferentProductsAddedToCartMultipleTimesAffectsQuanityOnDifferentProduct()
         {
-            var tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
-            var amazon = new Supplier{Name = "Amazon", Description = "Digital content and services"};
             var product1 = new Product
             {
                 Name = "Amazon Fire",
                 DefaultPrice = 49.9m,
                 Currency = "USD",
                 Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             var product2 = new Product
             {
@@ -148,8 +126,6 @@ namespace CodecoolShopTests
                 DefaultPrice = 89.0m,
                 Currency = "USD",
                 Description = "Amazon's latest Fire HD 8 tablet is a great value for media consumption.",
-                ProductCategory = tablet,
-                Supplier = amazon
             };
             _productDataStore.Add(product1);
             _productDataStore.Add(product2);
