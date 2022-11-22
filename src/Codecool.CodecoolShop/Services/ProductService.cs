@@ -18,6 +18,10 @@ namespace Codecool.CodecoolShop.Services
             this.supplierDao = supplierDao;
         }
 
+        public Product GetProductById(int productId)
+        {
+            return productDao.Get(productId);
+        }
         public ProductCategory GetProductCategory(int categoryId)
         {
             return productCategoryDao.Get(categoryId);
