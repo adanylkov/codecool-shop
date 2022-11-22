@@ -4,29 +4,69 @@
 
 @model List<Codecool.CodecoolShop.Models.Product>
 
-<div class="container">
-    @foreach (var element in Model)
-    {
-        <div class="col-lg-3 mb-3" style="display: inline-block; max-width: 350px;">
-            <div class="card">
-                <img src="img/@(element.Name).jpg" style="height: 50%; width: 50%; align-self: center; padding-top: 10px">
-
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        Product
-                        @{ var num = Model.IndexOf(element) + 1;}
-                        @num
-                    </h5>
-                    <h5 class="card-title">@element.Name</h5>
-                    <p class="card-text">@element.Description.</p>
-                    <p class="card-text">Category: @element.ProductCategory.Department</p>
-                    <p class="card-text">Supplier: @element.Supplier.Name</p>
-                    <p class="card-text text-center"><strong>Price: @element.DefaultPrice.ToString("C2")</strong></p>
-                    <a href="" type="button" class="btn btn-primary" style="float: bottom">Add To Cart</a>
+<div class="row">
+    <div class="col-2">
+        <div class="accordion" id="accordionFilters">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Categories
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFilters">
+                    <div class="accordion-body">
+                        <ul>
+                            @foreach (var category in (IEnumerable<ProductCategory>)ViewData["Categories"])
+                            {
+                                <li>@category.Name</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Supliers
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFilters">
+                    <div class="accordion-body">
+                        <ul>
+                            @foreach (var suplier in (IEnumerable<Supplier>)ViewData["Supliers"])
+                            {
+                                <li>@suplier.Name</li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
+    <div class="col">
+        <div class="container-fluid">
+            @foreach (var element in Model)
+            {
+                <div class="col-lg-3 mb-3" style="display: inline-block; max-width: 350px;">
+                    <div class="card">
+                        <img src="img/@(element.Name).jpg" style="height: 50%; width: 50%; align-self: center; padding-top: 10px">
 
-
+                        <div class="card-body">
+                            <h5 class="card-title text-center">
+                                Product
+                                @{ var num = Model.IndexOf(element) + 1;}
+                                @num
+                            </h5>
+                            <h5 class="card-title">@element.Name</h5>
+                            <p class="card-text">@element.Description.</p>
+                            <p class="card-text">Category: @element.ProductCategory.Department</p>
+                            <p class="card-text">Supplier: @element.Supplier.Name</p>
+                            <p class="card-text text-center"><strong>Price: @element.DefaultPrice.ToString("C2")</strong></p>
+                            <a href="" type="button" class="btn btn-primary" style="float: bottom">Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
