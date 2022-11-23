@@ -6,7 +6,7 @@ namespace Codecool.CodecoolShop.Models
 {
     public class Cart
     {
-        private readonly Dictionary<int, int> productIdQuanity = new();
+        public readonly Dictionary<int, int> productIdQuanity = new();
         public void Add(Product product)
         {
             var quanity = productIdQuanity.GetValueOrDefault(product.Id, 0);
