@@ -21,7 +21,7 @@
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             Cart
                         </button>
-                        <div class="dropdown-menu p-3">
+                        <div class="dropdown-menu dropdown-menu-end p-3" id="cart-dropdown">
                             <p>Shopping cart is empty</p>
                         </div>
                     </div>
@@ -51,6 +51,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/shopping-cart.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
