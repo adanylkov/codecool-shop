@@ -18,7 +18,7 @@
                         <ul>
                             @foreach (var category in (IEnumerable<ProductCategory>)ViewData["Categories"])
                             {
-                                <li>@category.Name</li>
+                                <li><a asp-route-category="@category.Id">>@category.Name</a></li>
                             }
                         </ul>
                     </div>
@@ -35,7 +35,7 @@
                         <ul>
                             @foreach (var suplier in (IEnumerable<Supplier>)ViewData["Supliers"])
                             {
-                                <li>@suplier.Name</li>
+                                <li><a asp-route-supplier="@suplier.Id">>@suplier.Name</a></li>
                             }
                         </ul>
                     </div>
