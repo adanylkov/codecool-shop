@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Codecool.CodecoolShop.Helpers;
-using System.Collections.Generic;
 using Codecool.CodecoolShop.Models;
+using System.Linq;
 
 namespace Codecool.CodecoolShop.Controllers
 {
@@ -24,21 +24,35 @@ namespace Codecool.CodecoolShop.Controllers
                 SupplierDaoMemory.GetInstance());
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult BuyProduct(int productId)
+        private Cart getCart()
         {
             var cart = HttpContext.Session.GetObjectFromJson<Cart>("cart");
-            if (cart == null) {
-                cart = new Cart();
-            }
-            var product = ProductService.GetProductById(productId);
-            cart.Add(product);
-            return Ok();
+            cart ??= new Cart();
+            return cart;
+        }
+        public IActionResult Index()
+        {
+            var cart = getCart();
+            var cartContent = cart.GetAll().Select(pair => (
+                ProductService.GetProductById(pair.Key),
+                pair.Value)).ToList();
+            return View(cartContent);
         }
 
+        public IActionResult Buy(int productId)
+        {
+            var cart = getCart();
+            var product = ProductService.GetProductById(productId);
+            cart.Add(product);
+            HttpContext.Session.SetObjectAsJson("cart", cart);
+            return Ok();
+        }
+        public IActionResult Remove(int productId)
+        {
+            var cart = getCart();
+            cart.Remove(productId);
+            HttpContext.Session.SetObjectAsJson("cart", cart);
+            return Ok();
+        }
     }
 }
