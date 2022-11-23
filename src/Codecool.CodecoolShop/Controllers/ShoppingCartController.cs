@@ -6,6 +6,8 @@ using Microsoft.Extensions.Logging;
 using Codecool.CodecoolShop.Helpers;
 using Codecool.CodecoolShop.Models;
 using System.Linq;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace Codecool.CodecoolShop.Controllers
 {
@@ -33,10 +35,19 @@ namespace Codecool.CodecoolShop.Controllers
         public IActionResult Index()
         {
             var cart = getCart();
-            var cartContent = cart.GetAll().Select(pair => (
-                ProductService.GetProductById(pair.Key),
-                pair.Value)).ToList();
-            return View(cartContent);
+            var cartContent = cart
+                .GetAll()
+                .Select(pair => (
+                    ProductService.GetProductById(pair.Key),
+                    pair.Value))
+                .Select(pair => new {
+                    pair.Item1.Name,
+                    Price = pair.Item1.DefaultPrice,
+                    Quanity = pair.Item2,
+                    ImagePath = $"img/{pair.Item1.Name}.jpg",
+                }).ToArray();
+
+            return Ok(cartContent);
         }
 
         public IActionResult Buy(int productId)
