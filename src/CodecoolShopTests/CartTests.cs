@@ -154,7 +154,7 @@ namespace CodecoolShopTests
 
             _cart.Add(product1);
             _cart.Add(product1);
-            _cart.Remove(product1);
+            _cart.Remove(product1.Id);
 
             var actualCart = _cart.GetAll();
             var expectedCart = new KeyValuePair<int, int>[] { };

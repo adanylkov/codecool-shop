@@ -18,7 +18,7 @@ namespace Codecool.CodecoolShop.Models
             var currentQuanity = productIdQuanity.GetValueOrDefault(product1.Id, 0);
             productIdQuanity[product1.Id] = currentQuanity - v;
             if (productIdQuanity[product1.Id] <= 0)
-                Remove(product1);
+                Remove(product1.Id);
         }
 
         public IEnumerable<KeyValuePair<int, int>> GetAll()
