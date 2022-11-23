@@ -140,5 +140,128 @@ namespace CodecoolShopTests
 
             CollectionAssert.AreEqual(actualCart, expectedCart);
         }
+        [Test]
+        public void RemovedProductFromCartIsNotInIt()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+
+            _cart.Add(product1);
+            _cart.Add(product1);
+            _cart.Remove(product1);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+
+        }
+        [Test]
+        public void DecreasingQuanityChangesAmountInCart()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+
+            _cart.Add(product1);
+            _cart.Add(product1);
+            _cart.Decrease(product1, 1);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { new KeyValuePair<int, int>(product1.Id, 1) };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+        }
+        [Test]
+        public void IncreasingQuanityChangesAmountInCart()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+
+            _cart.Add(product1);
+            _cart.Add(product1);
+            _cart.Increase(product1, 1);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { new KeyValuePair<int, int>(product1.Id, 3) };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+        }
+        [Test]
+        public void DecreasingQuanityToZeroRemovesProductFromCart()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+
+            _cart.Add(product1);
+            _cart.Add(product1);
+            _cart.Decrease(product1, 2);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+        }
+        [Test]
+        public void DecreasingQuanityBelowZeroRemovesProductFromCart()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+
+            _cart.Add(product1);
+            _cart.Decrease(product1, 2);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+        }
+        [Test]
+        public void DecreasingQuanityOnProductThatIsNotInCartDoesNothing()
+        {
+            var product1 = new Product
+            {
+                Name = "Amazon Fire",
+                DefaultPrice = 49.9m,
+                Currency = "USD",
+                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
+            };
+            _productDataStore.Add(product1);
+            _cart.Decrease(product1, 2);
+
+            var actualCart = _cart.GetAll();
+            var expectedCart = new KeyValuePair<int, int>[] { };
+
+            CollectionAssert.AreEqual(actualCart, expectedCart);
+        }
     }
 }
