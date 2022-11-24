@@ -28,6 +28,7 @@ namespace Codecool.CodecoolShop.Controllers
 
         public IActionResult Index(int? supplier, int? category)
         {
+            var defaultCategory = 1;
             ViewData["Categories"] = ProductService.GetCategories();
             ViewData["Supliers"] = ProductService.GetSupliers();
             if (category.HasValue)
@@ -40,7 +41,7 @@ namespace Codecool.CodecoolShop.Controllers
                 var supplierProducts = ProductService.GetProductsForSupplier(supplier.Value);
                 return View(supplierProducts.ToList());
             }
-            category = 1;
+            category = defaultCategory;
             var defaultProducts = ProductService.GetProductsForCategory(category.Value);
             return View(defaultProducts.ToList());
         }
