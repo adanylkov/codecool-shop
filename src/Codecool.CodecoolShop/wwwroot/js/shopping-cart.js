@@ -40,5 +40,26 @@ function createCartElement(name, price, quanity, imgPath) {
 
     return div;
 }
+function initialize() {
+    const buyButtons = document.querySelectorAll(".buy-btn");
+    for (var button of buyButtons) {
+        button.addEventListener("click", buyProduct);
+    }
+    addProductsToCart();
+}
+async function buyProduct(event) {
+    const target = event.target;
+    const productId = target.dataset.productId;
 
-addProductsToCart();
+    await fetch(`shoppingcart/buy?productId=${productId}`)
+    await addProductsToCart();
+    openCart();
+}
+function openCart() {
+    const cart = document.getElementById("cart-dropdown");
+    cart.classList.add("show");
+    cart.dataset.bsPopper = "static";
+    document.querySelector('button[data-bs-toggle]').classList.add("show");
+}
+
+initialize();

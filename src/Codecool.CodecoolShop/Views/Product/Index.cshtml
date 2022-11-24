@@ -62,7 +62,7 @@
                             <p class="card-text">Category: @element.ProductCategory.Department</p>
                             <p class="card-text">Supplier: @element.Supplier.Name</p>
                             <p class="card-text text-center"><strong>Price: @element.DefaultPrice.ToString("C2")</strong></p>
-                            <a href="" type="button" class="btn btn-primary" style="float: inline-end">Add To Cart</a>
+                            <button class="btn btn-primary buy-btn" style="float: inline-end" data-product-id="@element.Id">Add To Cart</button>
                         </div>
                     </div>
                 </div>
