@@ -1,12 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Payment";
 }
+@model Codecool.CodecoolShop.Models.PaymentModel
 
 <h3>Total price: </h3>
 <h4>Choose form of payment:</h4>
 <select>
     <option>By Card</option>
 </select>
+
+<div class="content">
+    <form>
+        <div class="mb-3">
+            <label asp-for="CardHolder" class="form-label"></label>
+            <input type="text" asp-for="CardHolder" class="form-control" placeholder="FirstName LastName" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CardNumber" class="form-label"></label>
+            <input type="text" asp-for="CardNumber" class="form-control" placeholder="1111222233334444">
+        </div>
+        <div class="mb-3">
+            <label asp-for="MonthExpiration" class="form-label"></label>
+            <input type="text" asp-for="MonthExpiration" class="form-control" placeholder="01">
+        </div>
+        <div class="mb-3">
+            <label asp-for="YearExpiration" class="form-label"></label>
+            <input type="text" asp-for="YearExpiration" class="form-control" placeholder="2022">
+        </div>
+        <div class="mb-3">
+            <label asp-for="CVV" class="form-label"></label>
+            <input type="text" asp-for="CVV" class="form-control" placeholder="123">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
 
 
