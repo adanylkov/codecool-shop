@@ -18,12 +18,12 @@ async function addProductsToCart() {
     }
 
     for (var item of cart) {
-        const cartElement = createCartElement(item.name, item.price, item.quanity, item.imagePath)
+        const cartElement = createCartElement(item.name, item.price, item.quanity, item.imagePath, item.id)
         cartInner.appendChild(cartElement);
     }
 }
 
-function createCartElement(name, price, quanity, imgPath) {
+function createCartElement(name, price, quanity, imgPath, productId) {
     const div = document.createElement("div");
     div.classList.add("dropdown-item", "d-flex", "justify-content-between");
 
@@ -34,9 +34,18 @@ function createCartElement(name, price, quanity, imgPath) {
 
     const li = document.createElement("li");
     li.textContent = `${name} - ${price}$ x${quanity}`;
+    const input = document.createElement("input");
+    input.type = "number";
+    input.value = quanity;
+    input.classList.add("ms-3");
+    input.style.width = "100px";
+    input.dataset.productId = productId;
+    input.addEventListener("change", changeQuanity);
+
 
     div.appendChild(img);
     div.appendChild(li);
+    div.appendChild(input);
 
     return div;
 }
@@ -60,6 +69,15 @@ function openCart() {
     cart.classList.add("show");
     cart.dataset.bsPopper = "static";
     document.querySelector('button[data-bs-toggle]').classList.add("show");
+}
+
+async function changeQuanity(event) {
+    const target = event.target;
+    const productId = target.dataset.productId;
+    const newQuanity = target.value;
+
+    await fetch(`shoppingcart/changequanity?productid=${productId}&newAmount=${newQuanity}`);
+    await addProductsToCart();
 }
 
 initialize();

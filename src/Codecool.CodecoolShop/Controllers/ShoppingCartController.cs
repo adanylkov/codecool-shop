@@ -42,6 +42,7 @@ namespace Codecool.CodecoolShop.Controllers
                     pair.Value))
                 .Select(pair => new {
                     pair.Item1.Name,
+                    pair.Item1.Id,
                     Price = pair.Item1.DefaultPrice,
                     Quanity = pair.Item2,
                     ImagePath = $"img/{pair.Item1.Name}.jpg",
@@ -55,6 +56,13 @@ namespace Codecool.CodecoolShop.Controllers
             var cart = getCart();
             var product = ProductService.GetProductById(productId);
             cart.Add(product);
+            HttpContext.Session.SetObjectAsJson("cart", cart);
+            return Ok();
+        }
+        public IActionResult ChangeQuanity(int productId, int newAmount)
+        {
+            var cart = getCart();
+            cart.SetQuanity(productId, newAmount);
             HttpContext.Session.SetObjectAsJson("cart", cart);
             return Ok();
         }
