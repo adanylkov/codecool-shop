@@ -16,11 +16,17 @@ async function addProductsToCart() {
         cartInner.appendChild(p);
         return;
     }
+    
+    let total = 0;
 
     for (var item of cart) {
         const cartElement = createCartElement(item.name, item.price, item.quanity, item.imagePath, item.id)
+        total += item.price * item.quanity;
         cartInner.appendChild(cartElement);
     }
+
+    cartInner.insertAdjacentHTML("afterbegin", `<p>Total price: ${total}$</p>`);
+    cartInner.insertAdjacentHTML("beforeend", `<a href="checkout" class="btn btn-primary mt-3 me-3" style="float: right">Checkout</a>`);
 }
 
 function createCartElement(name, price, quanity, imgPath, productId) {
@@ -33,7 +39,8 @@ function createCartElement(name, price, quanity, imgPath, productId) {
     img.classList.add("me-3");
 
     const li = document.createElement("li");
-    li.textContent = `${name} - ${price}$ x${quanity}`;
+    li.textContent = `${name}`;
+
     const input = document.createElement("input");
     input.type = "number";
     input.value = quanity;
@@ -43,8 +50,13 @@ function createCartElement(name, price, quanity, imgPath, productId) {
     input.addEventListener("change", changeQuanity);
 
 
+    const subtotal = document.createElement("li");
+    subtotal.textContent = `${price * input.value}$`;
+    subtotal.classList.add("ms-3");
+
     div.appendChild(img);
     div.appendChild(li);
+    div.appendChild(subtotal);
     div.appendChild(input);
 
     return div;
