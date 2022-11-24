@@ -27,6 +27,7 @@ namespace Codecool.CodecoolShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +47,7 @@ namespace Codecool.CodecoolShop
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
@@ -86,7 +88,7 @@ namespace Codecool.CodecoolShop
             productDataStore.Add(new Product { Name = "ASUS TUF Gaming", DefaultPrice = 650.0m, Currency = "USD", Description = "Bristling with high-refresh rate displays and competitive GPUs, ultra-durable TUF Gaming laptop deliver a reliable portable gaming experience to a wide audience of gamers.", ProductCategory = laptop, Supplier = asus });
             ProductCategory graphicsCard = new ProductCategory { Name = "Graphics card", Department = "Hardware", Description = "A Graphics card is an expansion card which generates a feed of output images to a display device, such as a computer monitor." };
             productCategoryDataStore.Add(graphicsCard);
-            productDataStore.Add(new Product { Name = "geforce rtx 3070", DefaultPrice = 510.0m, Currency = "USD", Description = "The Nvidia GeForce RTX 3070 is a fast desktop graphics card based on the Ampere architecture" , ProductCategory = graphicsCard, Supplier = geForce});
+            productDataStore.Add(new Product { Name = "Geforce RTX 3070", DefaultPrice = 510.0m, Currency = "USD", Description = "The Nvidia GeForce RTX 3070 is a fast desktop graphics card based on the Ampere architecture" , ProductCategory = graphicsCard, Supplier = geForce});
             ProductCategory mobilePhone = new ProductCategory { Name = "Mobile Phone", Department = "Hardware", Description = "a telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network." };
             productCategoryDataStore.Add(mobilePhone);
             productDataStore.Add(new Product { Name = "Samsung Galaxy S22", DefaultPrice = 610.0m, Currency = "USD", Description = "Samsung Galaxy S22, the most affordable device in the company's 2022 flagship series, has flown under the radar", ProductCategory = mobilePhone, Supplier = samsung });
