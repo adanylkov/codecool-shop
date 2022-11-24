@@ -2,89 +2,73 @@
     ViewData["Title"] = "Checkout";
 }
 <div class="row">
-    <div class="col-2">
-        <div class="accordion" id="accordionFilters">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFilters">
-                    <div class="accordion-body">
-                        <ul>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFilters">
-                    <div class="accordion-body">
-                        <ul>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="col">
-        <div class="container-fluid">
-            <form method="post" >
-        <fieldset>
-          <legend>Your personal data</legend>
-          <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="" />
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" value="" />
-          </div>
-          <div>
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" value="" />
-          </div>
-          <legend>Your billing adress</legend>
-          <div>
-             <div>
-            <label for="yourCountry">Country</label>
-            <input type="text" id="yourCountry" value="" name="yourCountry" />
-          </div>
-          <div>
-            <label for="yourCity">City:</label>
-            <input type="text" id="yourCity" name="yourCity" value="" />
-          </div>
-          <div>
-            <label for="yourZipcode">Zipcode:</label>
-            <input type="text" id="yourZipcode" name="yourZipcode" value="" />
-          </div>
-          <div>
-            <label for="yourAdress">Adress:</label>
-            <input type="text" id="yourAdress" name="yourAdress" value="" />
-          </div>
-          <legend>Your shipping adress</legend>
-          <div>
-             <div>
-            <label for="shippingCountry">Country</label>
-            <input type="text" id="shippingCountry" name="shippingCountry" value="" />
-          </div>
-          <div>
-            <label for="shippingCity">City:</label>
-            <input type="text" id="shippingCity" name="shippingCity" value="" />
-          </div>
-          <div>
-            <label for="shippingZipcode">Zipcode:</label>
-            <input type="text" id="shippingZipcode" name="shippingZipcode" value="" />
-          </div>
-          <div>
-            <label for="shippingAdress">Adress:</label>
-            <input type="text" id="shippingAdress" name="shippingAdress" value="" />
-          </div>
-            <label>&nbsp;</label>
-            <input type="submit" value="Submit" class="submit" />
-          </div>
-        </fieldset>
-      </form>
+        <div class="container">
+            <form method="post">
+                <fieldset>
+                    <legend>Your personal data</legend>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input class="form-control" type="text" id="name" name="name" value="" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input class="form-control" type="text" id="email" name="email" value="" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="" required/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <legend class="mb-3">Your billing adress</legend>
+                            <div>
+                                <div>
+                                    <label for="yourCountry" class="form-label">Country</label>
+                                    <input type="text" class="form-control" id="yourCountry" value="" name="yourCountry" required/>
+                                </div>
+                                <div>
+                                    <label for="yourCity" class="form-label">City:</label>
+                                    <input type="text" class="form-control" id="yourCity" name="yourCity" value="" required/>
+                                </div>
+                                <div>
+                                    <label for="yourZipcode" class="form-label">Zipcode:</label>
+                                    <input type="text" class="form-control" id="yourZipcode" name="yourZipcode" value="" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="yourAdress" class="form-label">Adress:</label>
+                                    <input type="text" class="form-control" id="yourAdress" name="yourAdress" value="" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <legend class="mb-3">Your shipping adress</legend>
+                            <div>
+                                <div>
+                                    <label for="shippingCountry" class="form-label">Country</label>
+                                    <input type="text" class="form-control" id="shippingCountry" name="shippingCountry" value="" required/>
+                                </div>
+                                <div>
+                                    <label for="shippingCity" class="form-label">City:</label>
+                                    <input type="text" class="form-control" id="shippingCity" name="shippingCity" value="" required/>
+                                </div>
+                                <div>
+                                    <label for="shippingZipcode" class="form-label">Zipcode:</label>
+                                    <input type="text" class="form-control" id="shippingZipcode" name="shippingZipcode" value="" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="shippingAdress" class="form-label">Adress:</label>
+                                    <input type="text" class="form-control" id="shippingAdress" name="shippingAdress" value="" required/>
+                                </div>
+                                <label>&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>
