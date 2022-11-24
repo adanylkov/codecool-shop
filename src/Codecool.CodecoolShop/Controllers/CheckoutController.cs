@@ -22,7 +22,7 @@ namespace Codecool.CodecoolShop.Controllers
         public IActionResult Index(string name, string email, string phone, string yourCountry, string yourCity, string yourZipcode, string yourAdress, string shippingCountry, string shippingCity, string shippingZipcode, string shippingAdress)
         {
             var order = new Order { name = name, email = email, phone = phone, billing = new Adress { country = yourCity, city = yourCity, zipcode = yourZipcode, adress = yourAdress }, shipping = new Adress { country = shippingCountry, city = shippingCity, zipcode = shippingZipcode, adress = shippingAdress } };
-            return Content($"Hello {phone}, {yourAdress}, {shippingCity}"); 
+            return Ok(); 
         }
     }
 }
