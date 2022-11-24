@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Codecool.CodecoolShop.Daos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +12,16 @@ namespace Codecool.CodecoolShop.Models
         {
             var quanity = productIdQuanity.GetValueOrDefault(product.Id, 0);
             productIdQuanity[product.Id] = quanity + 1;
+        }
+
+        public decimal Total(IProductDao productDao)
+        {
+            decimal total = 0;
+            foreach (var product in productIdQuanity)
+            {
+                total += productDao.Get(product.Key).DefaultPrice * product.Value;
+            }
+            return total;
         }
 
         public void SetQuanity(int productId, int v)
