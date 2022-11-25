@@ -28,19 +28,19 @@ namespace Codecool.CodecoolShop.Controllers
                 name = name,
                 email = email,
                 phone = phone,
-                billing = new Adress
+                billing = new Address
                 {
                     country = yourCity,
                     city = yourCity,
                     zipcode = yourZipcode,
-                    adress = yourAdress
+                    address = yourAdress
                 },
-                shipping = new Adress
+                shipping = new Address
                 {
                     country = shippingCountry,
                     city = shippingCity,
                     zipcode = shippingZipcode,
-                    adress = shippingAdress
+                    address = shippingAdress
                 }
             };
             HttpContext.Session.SetObjectAsJson("order", order);
