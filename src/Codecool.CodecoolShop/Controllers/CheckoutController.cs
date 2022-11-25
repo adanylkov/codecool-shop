@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Codecool.CodecoolShop.Daos;
-using Codecool.CodecoolShop.Daos.Implementations;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using Codecool.CodecoolShop.Models;
-using Codecool.CodecoolShop.Services;
 using Codecool.CodecoolShop.Helpers;
+
 
 namespace Codecool.CodecoolShop.Controllers
 {
@@ -30,7 +22,7 @@ namespace Codecool.CodecoolShop.Controllers
                 phone = phone,
                 billing = new Address
                 {
-                    country = yourCity,
+                    country = yourCountry,
                     city = yourCity,
                     zipcode = yourZipcode,
                     address = yourAdress

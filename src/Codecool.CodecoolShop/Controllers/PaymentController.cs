@@ -26,6 +26,8 @@ namespace Codecool.CodecoolShop.Controllers
         [HttpPost]
         public IActionResult Confirm()
         {
+            var order = HttpContext.Session.GetObjectFromJson<Order>("order");
+            order.SaveToJson();
             return Redirect("/confirmation");
         }
     }
