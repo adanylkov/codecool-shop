@@ -9,11 +9,11 @@ namespace Codecool.CodecoolShop.Models
         public string phone { get; set; }
         public Address billing { get; set; }
         public Address shipping { get; set; }
-        public void SaveToJson()
+        public void SaveToJson(string path)
         {
             var serializer = new JsonSerializer();
 
-            using (var sw = new StreamWriter("orderJson.json"))
+            using (var sw = new StreamWriter(Path.Combine(path, @"orderJson.json")))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, this);

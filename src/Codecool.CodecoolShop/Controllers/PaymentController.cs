@@ -4,16 +4,19 @@ using Codecool.CodecoolShop.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 namespace Codecool.CodecoolShop.Controllers
 {
     public class PaymentController : Controller
     {
         private readonly ILogger<PaymentController> _logger;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public PaymentController(ILogger<PaymentController> logger)
+        public PaymentController(ILogger<PaymentController> logger, IWebHostEnvironment hostEnvironment)
         {
             _logger = logger;
+            _hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -26,8 +29,10 @@ namespace Codecool.CodecoolShop.Controllers
         [HttpPost]
         public IActionResult Confirm()
         {
+            string webRootPath = _hostEnvironment.WebRootPath;
+            var path = Path.Combine(webRootPath, @"json");
             var order = HttpContext.Session.GetObjectFromJson<Order>("order");
-            order.SaveToJson();
+            order.SaveToJson(path);
             return Redirect("/confirmation");
         }
     }
