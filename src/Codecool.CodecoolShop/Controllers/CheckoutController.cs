@@ -11,6 +11,7 @@ using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
 using Codecool.CodecoolShop.Helpers;
 
+
 namespace Codecool.CodecoolShop.Controllers
 {
     public class CheckoutController : Controller
@@ -30,7 +31,7 @@ namespace Codecool.CodecoolShop.Controllers
                 phone = phone,
                 billing = new Address
                 {
-                    country = yourCity,
+                    country = yourCountry,
                     city = yourCity,
                     zipcode = yourZipcode,
                     address = yourAdress
