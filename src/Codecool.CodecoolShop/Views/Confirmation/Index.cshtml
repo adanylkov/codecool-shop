@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Order confirmation";
+}
+
+@model Codecool.CodecoolShop.Models.Order
+
+@if (Model is not null)
+{
+    <div class="container">
+    <h1>Successfully maked an order</h1>
+    <h3>Order details</h3>
+    <ol class="list-group list-group-numbered mb-5">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Name</div>
+                @Model.name
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Email</div>
+                @Model.email
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Phone number</div>
+                @Model.phone
+            </div>
+        </li>
+    </ol>
+    <h3>Shipping address</h3>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Country</div>
+                @Model.shipping.country
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">City</div>
+                @Model.shipping.city
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Zipcode</div>
+                @Model.shipping.zipcode
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Address</div>
+                @Model.shipping.address
+            </div>
+        </li>
+    </ol>
+    </div>
+}
+else
+{
+    <h1>Make new order on main page!</h1>
+}
+
