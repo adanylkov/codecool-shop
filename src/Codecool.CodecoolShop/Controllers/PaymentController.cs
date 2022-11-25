@@ -22,6 +22,11 @@ namespace Codecool.CodecoolShop.Controllers
             ViewData["total"] = cart?.Total(ProductDaoMemory.GetInstance()) ?? 0M;
             return View();
         }
-       
+
+        [HttpPost]
+        public IActionResult Confirm()
+        {
+            return Redirect("/confirmation");
+        }
     }
 }
