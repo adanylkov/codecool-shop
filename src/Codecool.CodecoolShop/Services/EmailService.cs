@@ -1,4 +1,4 @@
-﻿using Codecool.CodecoolShop.Models;
+﻿using Domain;
 using System.Collections.Generic;
 using System.Text;
 

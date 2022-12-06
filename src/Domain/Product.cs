@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Codecool.CodecoolShop.Models
+namespace Domain
 {
     public class Product : BaseModel
     {

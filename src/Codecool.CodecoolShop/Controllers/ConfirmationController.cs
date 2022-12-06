@@ -3,6 +3,7 @@ using Codecool.CodecoolShop.Daos.Implementations;
 using Codecool.CodecoolShop.Helpers;
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
