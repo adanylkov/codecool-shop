@@ -1,8 +1,10 @@
 using System.Diagnostics;
 using System.Linq;
+using System;
 using Codecool.CodecoolShop.Daos.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
 
@@ -16,10 +18,18 @@ namespace Codecool.CodecoolShop.Controllers
         public ProductController(ILogger<ProductController> logger)
         {
             _logger = logger;
-            ProductService = new ProductService(
-                ProductDaoMemory.GetInstance(),
-                ProductCategoryDaoMemory.GetInstance(),
-                SupplierDaoMemory.GetInstance());
+            try
+            {
+                Log.Information("Creating Daos");
+                ProductService = new ProductService(
+                    ProductDaoMemory.GetInstance(),
+                    ProductCategoryDaoMemory.GetInstance(),
+                    SupplierDaoMemory.GetInstance());
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Creating DAOs error! ");
+            }
         }
 
         public IActionResult Index(int? supplier, int? category)
