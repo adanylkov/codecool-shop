@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Codecool.CodecoolShop.Daos;
-using Codecool.CodecoolShop.Models;
+using Domain;
 
 namespace Codecool.CodecoolShop.Services
 {

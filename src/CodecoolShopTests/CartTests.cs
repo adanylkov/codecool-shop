@@ -1,6 +1,7 @@
 using Codecool.CodecoolShop.Daos;
 using Codecool.CodecoolShop.Daos.Implementations;
 using Codecool.CodecoolShop.Models;
+using Domain;
 
 namespace CodecoolShopTests
 {
@@ -176,7 +177,7 @@ namespace CodecoolShopTests
 
             _cart.Add(product1);
             _cart.Add(product1);
-            _cart.Decrease(product1, 1);
+            _cart.SetQuanity(product1.Id, 1);
 
             var actualCart = _cart.GetAll();
             var expectedCart = new KeyValuePair<int, int>[] { new KeyValuePair<int, int>(product1.Id, 1) };
@@ -197,7 +198,7 @@ namespace CodecoolShopTests
 
             _cart.Add(product1);
             _cart.Add(product1);
-            _cart.Increase(product1, 1);
+            _cart.SetQuanity(product1.Id, 3);
 
             var actualCart = _cart.GetAll();
             var expectedCart = new KeyValuePair<int, int>[] { new KeyValuePair<int, int>(product1.Id, 3) };
@@ -218,7 +219,7 @@ namespace CodecoolShopTests
 
             _cart.Add(product1);
             _cart.Add(product1);
-            _cart.Decrease(product1, 2);
+            _cart.SetQuanity(product1.Id, 0);
 
             var actualCart = _cart.GetAll();
             var expectedCart = new KeyValuePair<int, int>[] { };
@@ -238,25 +239,7 @@ namespace CodecoolShopTests
             _productDataStore.Add(product1);
 
             _cart.Add(product1);
-            _cart.Decrease(product1, 2);
-
-            var actualCart = _cart.GetAll();
-            var expectedCart = new KeyValuePair<int, int>[] { };
-
-            CollectionAssert.AreEqual(actualCart, expectedCart);
-        }
-        [Test]
-        public void DecreasingQuanityOnProductThatIsNotInCartDoesNothing()
-        {
-            var product1 = new Product
-            {
-                Name = "Amazon Fire",
-                DefaultPrice = 49.9m,
-                Currency = "USD",
-                Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.",
-            };
-            _productDataStore.Add(product1);
-            _cart.Decrease(product1, 2);
+            _cart.SetQuanity(product1.Id, -1);
 
             var actualCart = _cart.GetAll();
             var expectedCart = new KeyValuePair<int, int>[] { };

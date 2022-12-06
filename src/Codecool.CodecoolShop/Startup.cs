@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Codecool.CodecoolShop.Daos;
 using Codecool.CodecoolShop.Daos.Implementations;
-using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
+using DataAccess;
+using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,6 +32,7 @@ namespace Codecool.CodecoolShop
             services.AddControllersWithViews();
             services.AddSession();
             services.AddSingleton<IEmailService, EmailService>();
+            services.AddDbContext<ShopContext>(options => options.UseSqlServer("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
