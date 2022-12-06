@@ -2,6 +2,7 @@
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
 using NSubstitute;
+using Domain;
 
 namespace CodecoolShopTests;
 
