@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Codecool.CodecoolShop.Models;
-using Codecool.CodecoolShop.Helpers;
+using Codecool.CodecoolShop.Services;
 using Serilog;
 using System;
 
@@ -8,6 +8,11 @@ namespace Codecool.CodecoolShop.Controllers
 {
     public class SignupController : Controller
     {
+        private readonly IEmailService _emailService;
+        public SignupController(IEmailService emailService)
+        {
+            _emailService = emailService;
+        }
         [HttpGet]
         public IActionResult Index()
         {
@@ -25,13 +30,14 @@ namespace Codecool.CodecoolShop.Controllers
                     Email = email,
                     Password =password
                 };
-                //HttpContext.Session.SetObjectAsJson("order", order);
+                
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "Error in creating User object.");
             }
-            return Redirect("/payment");
+            _emailService.SendRegistrationEmail(name,email,password);
+            return Redirect("/product");
             }
     }
 }

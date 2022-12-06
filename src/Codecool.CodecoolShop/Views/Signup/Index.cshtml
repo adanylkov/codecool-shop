@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Checkout";
+}
+<div class="row">
+    <div class="col">
+        <div class="container">
+            <form method="post">
+                <fieldset>
+                    <legend>Your personal data</legend>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input class="form-control" type="text" id="name" name="name" value="" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input class="form-control" type="text" id="email" name="email" value="" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" value="" required/>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

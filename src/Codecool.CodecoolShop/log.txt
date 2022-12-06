@@ -3,3 +3,15 @@
 12/06/2022 11:20:12 +01:00 Creating Daos
 12/06/2022 11:34:26 +01:00 Application Starting.
 12/06/2022 11:34:29 +01:00 Creating Daos
+12/06/2022 11:44:57 +01:00 Application Starting.
+12/06/2022 11:44:58 +01:00 Creating Daos
+12/06/2022 13:09:12 +01:00 Application Starting.
+12/06/2022 13:09:14 +01:00 Creating Daos
+12/06/2022 13:09:56 +01:00 Creating User object
+12/06/2022 13:35:32 +01:00 Application Starting.
+12/06/2022 13:35:33 +01:00 Creating Daos
+12/06/2022 13:35:55 +01:00 Creating User object
+12/06/2022 13:35:55 +01:00 Trying to send registration email
+12/06/2022 13:35:59 +01:00 Creating Daos
+12/06/2022 13:38:10 +01:00 Application Starting.
+12/06/2022 13:38:11 +01:00 Creating Daos
