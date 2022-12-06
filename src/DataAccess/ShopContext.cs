@@ -8,6 +8,8 @@ public class ShopContext : DbContext
     private const string _connectionString = "Data Source=localhost;Database=CodecoolShop;Integrated Security=true";
 
     public DbSet<Product> Products { get; set; }
+    public DbSet<Supplier> Suppliers { get; set; }
+    public DbSet<ProductCategory> ProductCategories { get; set; }
     public ShopContext() : base()
     {
     }
