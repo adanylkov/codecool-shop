@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Helpers;
-
+using Serilog;
+using System;
 
 namespace Codecool.CodecoolShop.Controllers
 {
@@ -15,28 +16,36 @@ namespace Codecool.CodecoolShop.Controllers
         [HttpPost]
         public IActionResult Index(string name, string email, string phone, string yourCountry, string yourCity, string yourZipcode, string yourAdress, string shippingCountry, string shippingCity, string shippingZipcode, string shippingAdress)
         {
-            var order = new Order
+            try
             {
-                name = name,
-                email = email,
-                phone = phone,
-                billing = new Address
+                Log.Information("Creating Order object");
+                var order = new Order
                 {
-                    country = yourCountry,
-                    city = yourCity,
-                    zipcode = yourZipcode,
-                    address = yourAdress
-                },
-                shipping = new Address
-                {
-                    country = shippingCountry,
-                    city = shippingCity,
-                    zipcode = shippingZipcode,
-                    address = shippingAdress
-                }
-            };
-            HttpContext.Session.SetObjectAsJson("order", order);
+                    name = name,
+                    email = email,
+                    phone = phone,
+                    billing = new Address
+                    {
+                        country = yourCountry,
+                        city = yourCity,
+                        zipcode = yourZipcode,
+                        address = yourAdress
+                    },
+                    shipping = new Address
+                    {
+                        country = shippingCountry,
+                        city = shippingCity,
+                        zipcode = shippingZipcode,
+                        address = shippingAdress
+                    }
+                };
+                HttpContext.Session.SetObjectAsJson("order", order);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error in creating Order object.");
+            }
             return Redirect("/payment");
-        }
+            }
     }
 }
