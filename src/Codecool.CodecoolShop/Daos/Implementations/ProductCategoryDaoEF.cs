@@ -7,5 +7,5 @@ namespace Codecool.CodecoolShop.Daos.Implementations;
 
 public class ProductCategoryDaoEF : DaoEF<ProductCategory>, IProductCategoryDao
 {
-    public ProductCategoryDaoEF(DbContext db) : base(db) { }
+    public ProductCategoryDaoEF(ShopContext db) : base(db) { }
 }

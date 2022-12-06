@@ -7,7 +7,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 {
     public class SupplierDaoEF : DaoEF<Supplier>, ISupplierDao
     {
-        public SupplierDaoEF(DbContext db) : base(db)
+        public SupplierDaoEF(ShopContext db) : base(db)
         {
         }
     }

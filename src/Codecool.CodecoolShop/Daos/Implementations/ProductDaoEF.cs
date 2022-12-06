@@ -8,7 +8,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations;
 
 public class ProductDaoEF : DaoEF<Product>, IProductDao
 {
-    public ProductDaoEF(DbContext db) : base(db)
+    public ProductDaoEF(ShopContext db) : base(db)
     {
     }
 
