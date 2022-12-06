@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using System;
+using Serilog;
 namespace Codecool.CodecoolShop.Controllers
 {
     public class PaymentController : Controller
@@ -29,10 +31,18 @@ namespace Codecool.CodecoolShop.Controllers
         [HttpPost]
         public IActionResult Confirm()
         {
-            string webRootPath = _hostEnvironment.WebRootPath;
-            var path = Path.Combine(webRootPath, @"json");
-            var order = HttpContext.Session.GetObjectFromJson<Order>("order");
-            order.SaveToJson(path);
+            try
+            {
+                Log.Information("Trying to save Order to Json file");
+                string webRootPath = _hostEnvironment.WebRootPath;
+                var path = Path.Combine(webRootPath, @"json");
+                var order = HttpContext.Session.GetObjectFromJson<Order>("order");
+                order.SaveToJson(path);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error in saving Order to Json!");
+            }
             return Redirect("/confirmation");
         }
     }
