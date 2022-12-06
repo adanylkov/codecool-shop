@@ -8,7 +8,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 {
     public class ProductDaoMemory : IProductDao
     {
-        private List<Product> data = new List<Product>();
+        private readonly List<Product> data = new();
         private static ProductDaoMemory instance = null;
 
         private ProductDaoMemory()
@@ -17,10 +17,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 
         public static ProductDaoMemory GetInstance()
         {
-            if (instance == null)
-            {
-                instance = new ProductDaoMemory();
-            }
+            instance ??= new ProductDaoMemory();
 
             return instance;
         }
@@ -48,12 +45,12 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 
         public IEnumerable<Product> GetBy(Supplier supplier)
         {
-            return data.Where(x => x.Supplier.Id == supplier.Id);
+            return data.Where(x => x.SupplierId == supplier.Id);
         }
 
         public IEnumerable<Product> GetBy(ProductCategory productCategory)
         {
-            return data.Where(x => x.ProductCategory.Id == productCategory.Id);
+            return data.Where(x => x.ProductCategoryId == productCategory.Id);
         }
     }
 }
