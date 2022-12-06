@@ -13,23 +13,20 @@ namespace Codecool.CodecoolShop.Controllers
     public class ProductController : Controller
     {
         private readonly ILogger<ProductController> _logger;
-        public ProductService ProductService { get; set; }
+        public IProductService ProductService { get; set; }
 
-        public ProductController(ILogger<ProductController> logger)
+        public ProductController(ILogger<ProductController> logger, IProductService productService)
         {
             _logger = logger;
             try
             {
                 Log.Information("Creating Daos");
-                ProductService = new ProductService(
-                    ProductDaoMemory.GetInstance(),
-                    ProductCategoryDaoMemory.GetInstance(),
-                    SupplierDaoMemory.GetInstance());
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "Creating DAOs error! ");
             }
+            ProductService = productService;
         }
 
         public IActionResult Index(int? supplier, int? category)

@@ -14,11 +14,11 @@ public class ProductDaoEF : DaoEF<Product>, IProductDao
 
     public IEnumerable<Product> GetBy(Supplier supplier)
     {
-        return dbSet.Where(product => product.Supplier == supplier);
+        return dbSet.Where(product => product.SupplierId == supplier.Id);
     }
 
     public IEnumerable<Product> GetBy(ProductCategory productCategory)
     {
-        return dbSet.Where(product => product.ProductCategory == productCategory);
+        return dbSet.Where(product => product.ProductCategoryId == productCategory.Id);
     }
 }

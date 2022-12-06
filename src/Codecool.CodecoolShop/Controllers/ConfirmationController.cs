@@ -16,10 +16,11 @@ namespace Codecool.CodecoolShop.Controllers
     public class ConfirmationController : Controller
     {
         private readonly IEmailService _emailService;
-        private readonly IProductDao _productDao = ProductDaoMemory.GetInstance();
-        public ConfirmationController(IEmailService emailService)
+        private readonly IProductDao _productDao;
+        public ConfirmationController(IEmailService emailService, IProductDao productDao)
         {
             _emailService = emailService;
+            _productDao = productDao;
         }
         public IActionResult Index()
         {

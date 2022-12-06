@@ -5,7 +5,7 @@ using Domain;
 
 namespace Codecool.CodecoolShop.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly IProductDao productDao;
         private readonly IProductCategoryDao productCategoryDao;

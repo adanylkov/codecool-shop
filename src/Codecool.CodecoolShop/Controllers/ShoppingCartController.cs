@@ -15,15 +15,12 @@ namespace Codecool.CodecoolShop.Controllers
     {
         private readonly ILogger<ShoppingCartController> _logger;
 
-        public ProductService ProductService { get; set; }
+        public IProductService ProductService { get; set; }
 
-        public ShoppingCartController(ILogger<ShoppingCartController> logger)
+        public ShoppingCartController(ILogger<ShoppingCartController> logger, IProductService productService)
         {
             _logger = logger;
-            ProductService = new ProductService(
-                ProductDaoMemory.GetInstance(),
-                ProductCategoryDaoMemory.GetInstance(),
-                SupplierDaoMemory.GetInstance());
+            ProductService = productService;
         }
 
         private Cart getCart()

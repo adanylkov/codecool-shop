@@ -3,3 +3,16 @@
 12/06/2022 11:20:12 +01:00 Creating Daos
 12/06/2022 11:34:26 +01:00 Application Starting.
 12/06/2022 11:34:29 +01:00 Creating Daos
+12/06/2022 13:56:23 +01:00 Application Starting.
+12/06/2022 14:47:05 +01:00 Application Starting.
+12/06/2022 14:47:08 +01:00 Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+12/06/2022 14:47:08 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/06/2022 14:47:09 +01:00 Creating Daos
+12/06/2022 14:47:16 +01:00 Creating Daos
+12/06/2022 14:47:17 +01:00 Creating Daos
+12/06/2022 14:47:34 +01:00 Creating Daos
+12/06/2022 14:48:10 +01:00 Application Starting.
+12/06/2022 14:48:14 +01:00 Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+12/06/2022 14:48:14 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/06/2022 14:48:14 +01:00 Creating Daos
+12/06/2022 14:48:20 +01:00 Creating Daos

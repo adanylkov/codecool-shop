@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Codecool.CodecoolShop.Daos.Implementations;
 
@@ -29,7 +30,7 @@ public class DaoEF<T> : IDao<T> where T : class
 
     public IEnumerable<T> GetAll()
     {
-        return dbSet;
+        return dbSet.ToList();
     }
 
     public void Remove(int id)
