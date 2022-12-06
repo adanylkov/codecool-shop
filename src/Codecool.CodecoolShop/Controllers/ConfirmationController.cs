@@ -6,6 +6,8 @@ using Codecool.CodecoolShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using Serilog;
 using System.Text;
 
 namespace Codecool.CodecoolShop.Controllers
@@ -24,8 +26,16 @@ namespace Codecool.CodecoolShop.Controllers
             var cart = HttpContext.Session.GetObjectFromJson<Cart>("cart");
             if (order is not null)
             {
-                var productQuanityPairs = cart.GetAll().Select(cartItem => new KeyValuePair<Product, int>(_productDao.Get(cartItem.Key), cartItem.Value));
-                _emailService.SendConfirmationEmail(order.email, order.name, productQuanityPairs);
+                try
+                {
+                    Log.Information("Trying to send confirmation email!");
+                    var productQuanityPairs = cart.GetAll().Select(cartItem => new KeyValuePair<Product, int>(_productDao.Get(cartItem.Key), cartItem.Value));
+                    _emailService.SendConfirmationEmail(order.email, order.name, productQuanityPairs);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error with sending confirmation email!");
+                }
             }
             return View(order);
         }
