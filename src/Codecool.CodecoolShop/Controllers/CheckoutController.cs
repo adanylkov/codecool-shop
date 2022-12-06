@@ -39,13 +39,13 @@ namespace Codecool.CodecoolShop.Controllers
                         address = shippingAdress
                     }
                 };
+                HttpContext.Session.SetObjectAsJson("order", order);
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "Error in creating Order object.");
             }
-            HttpContext.Session.SetObjectAsJson("order", order);
-                return Redirect("/payment");
+            return Redirect("/payment");
             }
     }
 }
