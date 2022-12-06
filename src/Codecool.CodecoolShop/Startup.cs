@@ -32,7 +32,11 @@ namespace Codecool.CodecoolShop
             services.AddControllersWithViews();
             services.AddSession();
             services.AddSingleton<IEmailService, EmailService>();
-            services.AddDbContext<ShopContext>(options => options.UseSqlServer("DefaultConnection"));
+
+            services.AddDbContext<ShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IProductDao, ProductDaoEF>();
+            services.AddScoped<IProductCategoryDao, ProductCategoryDaoEF>();
+            services.AddScoped<ISupplierDao, SupplierDaoEF>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +67,7 @@ namespace Codecool.CodecoolShop
                     pattern: "{controller=Product}/{action=Index}/{id?}");
             });
 
-            SetupInMemoryDatabases();
+            //SetupInMemoryDatabases();
         }
 
         private void SetupInMemoryDatabases()
@@ -83,6 +87,7 @@ namespace Codecool.CodecoolShop
             Supplier apple = new Supplier { Name = "Apple", Description = "Mobile Phones and Computers" };
             supplierDataStore.Add(apple);
             Supplier geForce = new Supplier { Name = "GeForce", Description = "Graphics card " };
+
             ProductCategory tablet = new ProductCategory {Name = "Tablet", Department = "Hardware", Description = "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display." };
             productCategoryDataStore.Add(tablet);
             productDataStore.Add(new Product { Name = "Amazon Fire", DefaultPrice = 49.9m, Currency = "USD", Description = "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", ProductCategory = tablet, Supplier = amazon });
