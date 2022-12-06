@@ -1,6 +1,8 @@
 ﻿using Domain;
 using System.Collections.Generic;
 using System.Text;
+using System;
+using Serilog;
 
 namespace Codecool.CodecoolShop.Services
 {
@@ -23,6 +25,23 @@ namespace Codecool.CodecoolShop.Services
 
             var email = new Email(emailTo, "Your order confirmation", emailBody.ToString());
             email.Send();
+        }
+        public void SendRegistrationEmail(string name, string email, string password)
+        {
+            try
+            {
+                Log.Information("Trying to send registration email");
+                var emailBody = new StringBuilder();
+                emailBody.AppendLine($"Hello, {name}!");
+                emailBody.AppendLine($"You're username is {name} and password is {password}");
+
+                var yourEmail = new Email(email, "Your Registration confirmation", emailBody.ToString());
+                yourEmail.Send();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error in sending registration email!");
+            }
         }
     }
 }
