@@ -8,23 +8,27 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System;
 using Serilog;
+using Codecool.CodecoolShop.Daos;
+
 namespace Codecool.CodecoolShop.Controllers
 {
     public class PaymentController : Controller
     {
         private readonly ILogger<PaymentController> _logger;
         private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly IProductDao _productDao;
 
-        public PaymentController(ILogger<PaymentController> logger, IWebHostEnvironment hostEnvironment)
+        public PaymentController(ILogger<PaymentController> logger, IWebHostEnvironment hostEnvironment, IProductDao productDao)
         {
             _logger = logger;
             _hostEnvironment = hostEnvironment;
+            _productDao = productDao;
         }
 
         public IActionResult Index()
         {
             var cart = HttpContext.Session.GetObjectFromJson<Cart>("cart");
-            ViewData["total"] = cart?.Total(ProductDaoMemory.GetInstance()) ?? 0M;
+            ViewData["total"] = cart?.Total(_productDao) ?? 0M;
             return View();
         }
 

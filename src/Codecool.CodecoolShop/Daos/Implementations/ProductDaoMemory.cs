@@ -9,18 +9,6 @@ namespace Codecool.CodecoolShop.Daos.Implementations
     public class ProductDaoMemory : IProductDao
     {
         private readonly List<Product> data = new();
-        private static ProductDaoMemory instance = null;
-
-        private ProductDaoMemory()
-        {
-        }
-
-        public static ProductDaoMemory GetInstance()
-        {
-            instance ??= new ProductDaoMemory();
-
-            return instance;
-        }
 
         public void Add(Product item)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Codecool.CodecoolShop.Daos;
 using Codecool.CodecoolShop.Daos.Implementations;
+using Codecool.CodecoolShop.Options;
 using Codecool.CodecoolShop.Services;
 using DataAccess;
 using Domain;
@@ -33,11 +34,7 @@ namespace Codecool.CodecoolShop
             services.AddSession();
             services.AddSingleton<IEmailService, EmailService>();
 
-            services.AddDbContext<ShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IProductDao, ProductDaoEF>();
-            services.AddScoped<IProductCategoryDao, ProductCategoryDaoEF>();
-            services.AddScoped<ISupplierDao, SupplierDaoEF>();
-            services.AddScoped<IProductService, ProductService>();
+            DaoOptions.RegisterDao(Configuration, services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
