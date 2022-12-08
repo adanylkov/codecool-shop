@@ -1,9 +1,10 @@
 ﻿using Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess;
 
-public class ShopContext : DbContext
+public class ShopContext : IdentityDbContext
 {
     private const string _connectionString = "Data Source=localhost;Database=CodecoolShop;Integrated Security=true";
 

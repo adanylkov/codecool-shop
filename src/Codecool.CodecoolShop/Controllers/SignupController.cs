@@ -1,43 +1,53 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
 using Serilog;
-using System;
+using Codecool.CodecoolShop.Models.ViewModels;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Codecool.CodecoolShop.Controllers
+namespace Codecool.CodecoolShop.Controllers;
+
+[AllowAnonymous]
+public class SignupController : Controller
 {
-    public class SignupController : Controller
+    private readonly IEmailService _emailService;
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+    public SignupController(IEmailService emailService, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
     {
-        private readonly IEmailService _emailService;
-        public SignupController(IEmailService emailService)
+        _emailService = emailService;
+        _signInManager = signInManager;
+        _userManager = userManager;
+    }
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ActionName("Register")]
+    public async Task<IActionResult> RegisterPost(RegisterViewModel registerViewModel)
+    {
+        if (ModelState.IsValid)
         {
-            _emailService = emailService;
-        }
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Index(string name, string email, string password)
-        {
-            try
+            var user = new IdentityUser { UserName = registerViewModel.Username, Email = registerViewModel.Email };
+            var result = await _userManager.CreateAsync(user, registerViewModel.Password);
+            if (result.Succeeded)
             {
                 Log.Information("Creating User object");
-                var user = new User
-                {
-                    Name = name,
-                    Email = email,
-                    Password =password
-                };
-                
+                _emailService.SendRegistrationEmail(registerViewModel.Username, registerViewModel.Email, registerViewModel.Password);
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectPermanent("Index");
             }
-            catch (Exception ex)
+            Log.Error("Error in creating User object.");
+            foreach (var error in result.Errors)
             {
-                Log.Error(ex, "Error in creating User object.");
+                Log.Error(error.Description);
+                ModelState.AddModelError(string.Empty, error.Description);
             }
-            _emailService.SendRegistrationEmail(name,email,password);
-            return Redirect("/product");
-            }
+        }
+        return View("Index");
     }
 }

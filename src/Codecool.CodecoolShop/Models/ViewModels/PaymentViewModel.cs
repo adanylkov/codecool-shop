@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Codecool.CodecoolShop.Models;
+namespace Codecool.CodecoolShop.Models.ViewModels;
 
-public class PaymentModel
+public class PaymentViewModel
 {
     [Required]
     [DisplayName("Card number")]
