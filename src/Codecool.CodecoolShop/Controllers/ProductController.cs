@@ -1,12 +1,11 @@
 using System.Diagnostics;
 using System.Linq;
 using System;
-using Codecool.CodecoolShop.Daos.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
+using Codecool.CodecoolShop.Models.ViewModels;
 
 namespace Codecool.CodecoolShop.Controllers
 {

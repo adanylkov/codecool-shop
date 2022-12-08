@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
 using Serilog;
 using System;
+using Codecool.CodecoolShop.Domain;
 
 namespace Codecool.CodecoolShop.Controllers
 {
