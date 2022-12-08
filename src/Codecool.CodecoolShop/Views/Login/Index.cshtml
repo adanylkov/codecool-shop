@@ -4,21 +4,23 @@
  
 @model Codecool.CodecoolShop.Models.ViewModels.LoginViewModel
 
-<h1>@ViewData["Title"]</h1>
+
+<div class="container-fluid">
 <div class="row">
+    <h1>@ViewData["Title"]</h1>
     <div class="col-md-4">
         <section>
-            <form id="account" method="post">
+            <form id="account" method="post" asp-action="Login">
                 <h4>Use a local account to log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Email"></label>
+                    <label asp-for="Email" class="form-label"></label>
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Password"></label>
+                    <label asp-for="Password" class="form-label"></label>
                     <input asp-for="Password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
@@ -28,4 +30,5 @@
             </form>
         </section>
     </div>
+</div>
 </div>
