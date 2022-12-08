@@ -1,7 +1,9 @@
-﻿using Codecool.CodecoolShop.Options;
+﻿using Codecool.CodecoolShop.Domain;
+using Codecool.CodecoolShop.Options;
 using Codecool.CodecoolShop.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,10 @@ namespace Codecool.CodecoolShop
             services.AddSession();
             services.AddSingleton<IEmailService, EmailService>();
             services.RegisterDao(Configuration);
+
+            services.AddIdentity<User, Role>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddDefaultTokenProviders();
+            //  .AddEntityFrameworkStores<ShopContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +51,7 @@ namespace Codecool.CodecoolShop
             app.UseRouting();
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
