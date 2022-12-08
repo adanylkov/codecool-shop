@@ -3,6 +3,7 @@ using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Helpers;
 using Serilog;
 using System;
+using Codecool.CodecoolShop.Models.ViewModels;
 
 namespace Codecool.CodecoolShop.Controllers
 {
