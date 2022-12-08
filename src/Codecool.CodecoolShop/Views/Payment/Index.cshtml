@@ -15,32 +15,33 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label asp-for="CardHolder" class="form-label"></label>
-                    <input type="text" asp-for="CardHolder" class="form-control" placeholder="FirstName LastName" required/>
+                    <input type="text" asp-for="CardHolder" class="form-control" placeholder="FirstName LastName"/>
+                    <span asp-validation-for="CardHolder" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-md-6">
                     <label asp-for="CardNumber" class="form-label"></label>
-                    <input type="text" asp-for="CardNumber" class="form-control" placeholder="1111222233334444" required/>
+                    <input type="text" asp-for="CardNumber" class="form-control" placeholder="1111222233334444"/>
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="mb-3 col-md-4">
                     <label asp-for="MonthExpiration" class="form-label"></label>
-                    <input type="text" asp-for="MonthExpiration" class="form-control" placeholder="01" required/>
+                    <input type="text" asp-for="MonthExpiration" class="form-control" placeholder="01"/>
+                    <span asp-validation-for="MonthExpiration" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-md-4">
                     <label asp-for="YearExpiration" class="form-label"></label>
-                    <input type="text" asp-for="YearExpiration" class="form-control" placeholder="2022" required/>
+                    <input type="text" asp-for="YearExpiration" class="form-control" placeholder="2022"/>
+                    <span asp-validation-for="YearExpiration" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-md-4">
                     <label asp-for="CVV" class="form-label"></label>
-                    <input type="text" asp-for="CVV" class="form-control" placeholder="123" required/>
+                    <input type="text" asp-for="CVV" class="form-control" placeholder="123"/>
+                    <span asp-validation-for="CVV" class="text-danger"></span>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
-
-
-
-

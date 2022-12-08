@@ -1,6 +1,8 @@
 @{
     ViewData["Title"] = "Checkout";
 }
+@model Codecool.CodecoolShop.Models.CheckoutViewModel
+
 <div class="row">
     <div class="col">
         <div class="container">
@@ -8,36 +10,43 @@
                 <fieldset>
                     <legend>Your personal data</legend>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name:</label>
-                        <input class="form-control" type="text" id="name" name="name" value="" required/>
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email:</label>
-                        <input class="form-control" type="text" id="email" name="email" value="" required/>
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="" required/>
+                        <label asp-for="Phone" class="form-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-md">
                             <legend class="mb-3">Your billing adress</legend>
                             <div>
                                 <div>
-                                    <label for="yourCountry" class="form-label">Country</label>
-                                    <input type="text" class="form-control" id="yourCountry" value="" name="yourCountry" required/>
+                                    <label asp-for="YourCountry" class="form-label"></label>
+                                    <input asp-for="YourCountry" class="form-control" />
+                                    <span asp-validation-for="YourCountry" class="text-danger"></span>
                                 </div>
                                 <div>
-                                    <label for="yourCity" class="form-label">City:</label>
-                                    <input type="text" class="form-control" id="yourCity" name="yourCity" value="" required/>
+                                    <label asp-for="YourCity" class="form-label"></label>
+                                    <input asp-for="YourCity" class="form-control" />
+                                    <span asp-validation-for="YourCity" class="text-danger"></span>
                                 </div>
                                 <div>
-                                    <label for="yourZipcode" class="form-label">Zipcode:</label>
-                                    <input type="text" class="form-control" id="yourZipcode" name="yourZipcode" value="" required/>
+                                    <label asp-for="YourZipcode" class="form-label"></label>
+                                    <input asp-for="YourZipcode" class="form-control" />
+                                    <span asp-validation-for="YourZipcode" class="text-danger"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="yourAdress" class="form-label">Adress:</label>
-                                    <input type="text" class="form-control" id="yourAdress" name="yourAdress" value="" required/>
+                                    <label asp-for="YourAdress" class="form-label"></label>
+                                    <input asp-for="YourAdress" class="form-control" />
+                                    <span asp-validation-for="YourAdress" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -45,22 +54,25 @@
                             <legend class="mb-3">Your shipping adress</legend>
                             <div>
                                 <div>
-                                    <label for="shippingCountry" class="form-label">Country</label>
-                                    <input type="text" class="form-control" id="shippingCountry" name="shippingCountry" value="" required/>
+                                    <label asp-for="ShippingCountry" class="form-label"></label>
+                                    <input asp-for="ShippingCountry" class="form-control" />
+                                    <span asp-validation-for="ShippingCountry" class="text-danger"></span>
                                 </div>
                                 <div>
-                                    <label for="shippingCity" class="form-label">City:</label>
-                                    <input type="text" class="form-control" id="shippingCity" name="shippingCity" value="" required/>
+                                    <label asp-for="ShippingCity" class="form-label"></label>
+                                    <input asp-for="ShippingCity" class="form-control" />
+                                    <span asp-validation-for="ShippingCity" class="text-danger"></span>
                                 </div>
                                 <div>
-                                    <label for="shippingZipcode" class="form-label">Zipcode:</label>
-                                    <input type="text" class="form-control" id="shippingZipcode" name="shippingZipcode" value="" required/>
+                                    <label asp-for="ShippingZipcode" class="form-label"></label>
+                                    <input asp-for="ShippingZipcode" class="form-control" />
+                                    <span asp-validation-for="ShippingZipcode" class="text-danger"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="shippingAdress" class="form-label">Adress:</label>
-                                    <input type="text" class="form-control" id="shippingAdress" name="shippingAdress" value="" required/>
+                                    <label asp-for="ShippingAdress" class="form-label"></label>
+                                    <input asp-for="ShippingAdress" class="form-control" />
+                                    <span asp-validation-for="ShippingAdress" class="text-danger"></span>
                                 </div>
-                                <label>&nbsp;</label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">

@@ -13,7 +13,7 @@ namespace CodecoolShopTests
         public void Setup()
         {
             _cart = new Cart();
-            _productDataStore = ProductDaoMemory.GetInstance(); // If it is not in memory make separate test database
+            _productDataStore = new ProductDaoMemory(new ProductCategoryDaoMemory(), new SupplierDaoMemory());
             var products = _productDataStore.GetAll().ToList();
             foreach (var product in products)
             {

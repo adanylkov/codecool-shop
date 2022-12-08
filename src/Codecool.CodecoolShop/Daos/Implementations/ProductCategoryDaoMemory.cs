@@ -3,7 +3,7 @@ using Domain;
 
 namespace Codecool.CodecoolShop.Daos.Implementations
 {
-    class ProductCategoryDaoMemory : IProductCategoryDao
+    public class ProductCategoryDaoMemory : IProductCategoryDao
     {
         private List<ProductCategory> data = new();
         public ProductCategoryDaoMemory()
