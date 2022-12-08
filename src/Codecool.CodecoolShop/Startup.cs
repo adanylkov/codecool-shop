@@ -1,5 +1,4 @@
-﻿using Codecool.CodecoolShop.Domain;
-using Codecool.CodecoolShop.Options;
+﻿using Codecool.CodecoolShop.Options;
 using Codecool.CodecoolShop.Services;
 using DataAccess;
 using Microsoft.AspNetCore.Builder;
