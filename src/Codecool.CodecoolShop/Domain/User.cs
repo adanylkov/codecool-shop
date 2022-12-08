@@ -1,6 +1,8 @@
-﻿namespace Codecool.CodecoolShop.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Codecool.CodecoolShop.Domain
 {
-    public class User
+    public class User : IdentityUser
     {
         public string Name { get; set; }
         public string Email { get; set; }
