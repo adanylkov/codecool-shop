@@ -1,6 +1,7 @@
 ﻿using Codecool.CodecoolShop.Domain;
 using Codecool.CodecoolShop.Options;
 using Codecool.CodecoolShop.Services;
+using DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -28,8 +29,8 @@ namespace Codecool.CodecoolShop
             services.RegisterDao(Configuration);
 
             services.AddIdentity<User, Role>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddDefaultTokenProviders();
-            //  .AddEntityFrameworkStores<ShopContext>();
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<ShopContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
