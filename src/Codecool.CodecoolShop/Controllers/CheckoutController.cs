@@ -14,29 +14,29 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string name, string email, string phone, string yourCountry, string yourCity, string yourZipcode, string yourAdress, string shippingCountry, string shippingCity, string shippingZipcode, string shippingAdress)
+        public IActionResult Index(CheckoutViewModel checkout)
         {
             try
             {
                 Log.Information("Creating Order object");
                 var order = new Order
                 {
-                    name = name,
-                    email = email,
-                    phone = phone,
+                    name = checkout.Name,
+                    email = checkout.Email,
+                    phone = checkout.Phone,
                     billing = new Address
                     {
-                        country = yourCountry,
-                        city = yourCity,
-                        zipcode = yourZipcode,
-                        address = yourAdress
+                        country = checkout.YourCountry,
+                        city = checkout.YourCity,
+                        zipcode = checkout.YourZipcode,
+                        address = checkout.YourAdress
                     },
                     shipping = new Address
                     {
-                        country = shippingCountry,
-                        city = shippingCity,
-                        zipcode = shippingZipcode,
-                        address = shippingAdress
+                        country = checkout.ShippingCountry,
+                        city = checkout.ShippingCity,
+                        zipcode = checkout.ShippingZipcode,
+                        address = checkout.ShippingAdress
                     }
                 };
                 HttpContext.Session.SetObjectAsJson("order", order);
