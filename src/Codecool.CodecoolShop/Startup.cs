@@ -28,7 +28,7 @@ namespace Codecool.CodecoolShop
             services.AddSingleton<IEmailService, EmailService>();
             services.RegisterDao(Configuration);
 
-            services.AddIdentity<User, Role>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ShopContext>();
         }
