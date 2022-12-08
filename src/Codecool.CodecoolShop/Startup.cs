@@ -33,8 +33,7 @@ namespace Codecool.CodecoolShop
             services.AddControllersWithViews();
             services.AddSession();
             services.AddSingleton<IEmailService, EmailService>();
-
-            DaoOptions.RegisterDao(Configuration, services);
+            services.RegisterDao(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

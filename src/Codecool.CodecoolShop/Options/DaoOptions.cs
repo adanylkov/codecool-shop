@@ -13,7 +13,7 @@ namespace Codecool.CodecoolShop.Options
 {
     public static class DaoOptions
     {
-        public static void RegisterDao(IConfiguration configuration, IServiceCollection services)
+        public static void RegisterDao(this IServiceCollection services, IConfiguration configuration)
         {
             var mode = configuration.GetRequiredSection("Mode");
             switch (mode.Value)
