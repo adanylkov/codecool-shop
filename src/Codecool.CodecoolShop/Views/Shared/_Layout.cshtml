@@ -47,6 +47,12 @@
                                 <a asp-controller="Login" asp-action="Index" class="nav-link text-dark">Login</a>
                             }
                         </li>
+                        <li class=" nav-item">
+                            @if (!SignInManager.IsSignedIn(User))
+                            {
+                                <a asp-controller="SignUp" asp-action="Index" class="nav-link text-dark">SignUp</a>
+                            }
+                        </li>
                     </ul>
                 </div>
             </div>

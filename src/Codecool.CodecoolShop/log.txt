@@ -227,3 +227,27 @@ Error Number:208,State:1,Class:16
 12/08/2022 16:44:34 +01:00 Passwords must have at least one non alphanumeric character.
 12/08/2022 16:44:34 +01:00 Passwords must have at least one lowercase ('a'-'z').
 12/08/2022 16:44:34 +01:00 Passwords must have at least one uppercase ('A'-'Z').
+12/09/2022 02:14:56 +01:00 Application Starting.
+12/09/2022 02:14:58 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:14:58 +01:00 Creating Daos
+12/09/2022 02:17:26 +01:00 Application Starting.
+12/09/2022 02:17:27 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:17:27 +01:00 Creating Daos
+12/09/2022 02:21:49 +01:00 Application Starting.
+12/09/2022 02:21:50 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:21:51 +01:00 Creating Daos
+12/09/2022 02:24:04 +01:00 Application Starting.
+12/09/2022 02:24:06 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:24:06 +01:00 Creating Daos
+12/09/2022 02:24:15 +01:00 Application Starting.
+12/09/2022 02:24:17 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:24:17 +01:00 Creating Daos
+12/09/2022 02:26:04 +01:00 Application Starting.
+12/09/2022 02:26:06 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:26:06 +01:00 Creating Daos
+12/09/2022 02:27:33 +01:00 Application Starting.
+12/09/2022 02:27:35 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:27:35 +01:00 Creating Daos
+12/09/2022 02:28:19 +01:00 Application Starting.
+12/09/2022 02:28:21 +01:00 No store type was specified for the decimal property '"DefaultPrice"' on entity type '"Product"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+12/09/2022 02:28:21 +01:00 Creating Daos
